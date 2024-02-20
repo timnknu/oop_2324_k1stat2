@@ -24,6 +24,8 @@ class QuadraticEquation:
         x1 = (-self.b + D ** 0.5) / (2 * self.a)
         x2 = (-self.b - D ** 0.5) / (2 * self.a)
         return [x1, x2]
+    def show(self):
+        print(f'({self.a})* x**2 + ({self.b}) * x + ({self.c})')
 
 eq1 = QuadraticEquation(1.0, -2.0, 1.0)
 second_eq = QuadraticEquation(1.0, -2.0, -5)
@@ -31,4 +33,6 @@ third_eq = QuadraticEquation(1.0, -2.0, 10)
 
 for obj in [eq1, second_eq, third_eq]:
     s = obj.solve_q_equation()
-    print(s)
+    if len(s) == 1:
+        print(s)
+        obj.show()
