@@ -12,8 +12,11 @@ def solve_q_equation(data):
     print(x1, x2)
 #
 
-eq1 = {'a': 1.0, 'b': -2.0, 'c': 1.0}
-second_eq = {'a': 1.0, 'b': -2.0, 'c': 0.0}
-solve_q_equation(eq1)
-solve_q_equation(second_eq)
+eq1 = {'a': 1.0, 'b': -2.0, 'c': 1.0,
+       'solve': solve_q_equation}
+second_eq = {'a': 1.0, 'b': -2.0, 'c': 0.0,
+             'solve': solve_q_equation}
 
+eq1['solve'](eq1)
+
+second_eq['solve'](second_eq)
