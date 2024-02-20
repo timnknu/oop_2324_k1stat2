@@ -1,8 +1,5 @@
 class QuadraticEquation:
-    def __init__(self):
-        print('New QuadraticEquation is being created')
-
-    def set_data(self, coef_a, coef_b, coef_c):
+    def __init__(self, coef_a, coef_b, coef_c):
         self.a = coef_a
         self.b = coef_b
         self.c = coef_c
@@ -16,11 +13,9 @@ class QuadraticEquation:
         x2 = (-self.b - D ** 0.5) / (2 * self.a)
         print(x1, x2)
 
-eq1 = QuadraticEquation()
-eq1.set_data(1.0, -2.0, 1.0)
+eq1 = QuadraticEquation(1.0, -2.0, 1.0)
 
-second_eq = QuadraticEquation()
-second_eq.set_data(1.0, -2.0, 0.0)
+second_eq = QuadraticEquation(1.0, -2.0, 0.0)
 
 eq1.solve_q_equation()
 second_eq.solve_q_equation()
