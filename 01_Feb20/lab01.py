@@ -26,10 +26,9 @@ class QuadraticEquation:
         return [x1, x2]
 
 eq1 = QuadraticEquation(1.0, -2.0, 1.0)
+second_eq = QuadraticEquation(1.0, -2.0, -5)
+third_eq = QuadraticEquation(1.0, -2.0, 10)
 
-second_eq = QuadraticEquation(eq1)  # конструктро копіювання має взяти всі дані з eq1
-#
-sol1 = eq1.solve_q_equation()
-second_sol = second_eq.solve_q_equation()
-
-print(sol1, second_sol)
+for obj in [eq1, second_eq, third_eq]:
+    s = obj.solve_q_equation()
+    print(s)
