@@ -14,12 +14,16 @@ class QuadraticEquation:
         x2 = (-self.b - D ** 0.5) / (2 * self.a)
         print(x1, x2)
 
+
 eq1 = QuadraticEquation()
-eq1.set_data(1.0, -2.0, 1.0)
+# прямий доступ до даних (потенційно небезпечно)
+eq1.a = 1.0
+eq1.b = -2.0
+eq1.c = 1.0
 
 second_eq = QuadraticEquation()
+# доступ до даних об'єкта під "наглядом" створеного нами "посередника"
 second_eq.set_data(1.0, -2.0, 0.0)
 
 eq1.solve_q_equation()
-
 second_eq.solve_q_equation()
