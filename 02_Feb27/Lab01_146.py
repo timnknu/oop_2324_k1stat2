@@ -1,7 +1,7 @@
 class Polynom:
     def __init__(self):
         self._coefs_dict = {}
-    def process_line(self, line):
+    def _process_line(self, line):
         data = line.split()
         if len(data):
             assert len(data) == 2
@@ -21,16 +21,30 @@ class Polynom:
             self._coefs_dict[pwr] = coef
             return True
     #
-
     def read_from_file(self, file_name):
         self._coefs_dict = {}
-        with open(file_name) as f:
-            for line in f:
-                self.process_line( line.strip() )
+        try:
+            with open(file_name) as f:
+                for line in f:
+                    self._process_line( line.strip() )
+        except:
+            print("Error while reading from file")
+    #
+
+    def read_from_keyboard(self):
+        self._coefs_dict = {}
+        print("Input powers & coefs, one pair per line, or empty line to stop")
+        while True:
+            s = input()
+            if s == "":
+                break
+            self._process_line( s )
+    #
 
     def show(self):
         print(self._coefs_dict)
 
 obj = Polynom()
-obj.read_from_file('input01.txt')
+#obj.read_from_file('input01.txt')
+obj.read_from_keyboard()
 obj.show()
