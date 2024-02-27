@@ -1,30 +1,35 @@
 class Polynom:
     def __init__(self):
-        self._data = {}
+        self._coefs_dict = {}
+    def process_line(self, line):
+        data = line.split()
+        if len(data):
+            assert len(data) == 2
+            try:
+                pwr = int(data[0])
+            except:
+                print('Incorrect power:', line[0])
+                return False
+            #
+            assert pwr >= 0
+            try:
+                coef = float(data[1])
+            except:
+                print('Incorrect coef:', line[1])
+                return False
+            #
+            self._coefs_dict[pwr] = coef
+            return True
+    #
+
     def read_from_file(self, file_name):
-        poly = {}
+        self._coefs_dict = {}
         with open(file_name) as f:
             for line in f:
-                data = line.strip().split()
-                if len(data):
-                    assert len(data)==2
-                    try:
-                        pwr = int(data[0])
-                    except:
-                        print('Incorrect power:', line[0])
-                        continue
-                    #
-                    assert pwr >= 0
-                    try:
-                        coef = float(data[1])
-                    except:
-                        print('Incorrect coef:', line[1])
-                        continue
-                    #
-                    poly[pwr] = coef
-        self._data = poly
+                self.process_line( line.strip() )
+
     def show(self):
-        print(self._data)
+        print(self._coefs_dict)
 
 obj = Polynom()
 obj.read_from_file('input01.txt')
