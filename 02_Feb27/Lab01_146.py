@@ -41,10 +41,20 @@ class Polynom:
             self._process_line( s )
     #
 
+    def evaluate_at_point(self, x):
+        result = 0
+        for pwr, coef in self._coefs_dict.items():
+            term = x ** pwr * coef
+            result += term
+        return result
+    #
+
     def show(self):
         print(self._coefs_dict)
 
 obj = Polynom()
-#obj.read_from_file('input01.txt')
-obj.read_from_keyboard()
+obj.read_from_file('input01.txt')
+#obj.read_from_keyboard()
+val = obj.evaluate_at_point(0.5)
+print(val)
 obj.show()
