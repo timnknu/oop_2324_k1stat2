@@ -1,4 +1,5 @@
-with (open('input01.txt') as f):
+poly = {}
+with open('input01.txt') as f:
     for line in f:
         data = line.strip().split()
         if len(data):
@@ -16,4 +17,5 @@ with (open('input01.txt') as f):
                 print('Incorrect coef:', line[1])
                 continue
             #
-            print(pwr, coef)
+            poly[pwr] = coef
+print(poly)
