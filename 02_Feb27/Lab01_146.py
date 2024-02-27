@@ -1,8 +1,8 @@
 class Polynom:
     def __init__(self):
         self._coefs_dict = {}
-    #def get_power(self):
-    #    return self._coefs_dict.keys()
+    def get_power(self):
+        return self._coefs_dict.keys()
     def get_coef(self, pwr):
         #return self._coefs_dict.get(pwr, 0)
         if pwr in self._coefs_dict:
@@ -51,6 +51,9 @@ class Polynom:
             self._process_line( s )
     #
 
+    def set_coefs(self, poly):
+        self._coefs_dict = poly
+
     def evaluate_at_point(self, x):
         result = 0
         for pwr, coef in self._coefs_dict.items():
@@ -64,10 +67,15 @@ class Polynom:
 
     @staticmethod
     def add(poly1, poly2):
-        powers1 = poly1._coefs_dict.keys()
-        powers2 = poly2._coefs_dict.keys()
+        powers1 = poly1.get_power()
+        powers2 = poly2.get_power()
+        poly = {}
         for pwr in set(powers1) | set(powers2):
-            coef = poly1.get_coef(pwr) + poly2.get_coef(pwr)
+            poly[pwr] = poly1.get_coef(pwr) + poly2.get_coef(pwr)
+        new_polynom = Polynom()
+        new_polynom.set_coefs(poly)
+        return new_polynom
+
 
 obj = Polynom()
 obj.read_from_file('input01.txt')
@@ -75,4 +83,7 @@ obj.read_from_file('input01.txt')
 #val = obj.evaluate_at_point(0.5)
 #print(val)
 #obj.show()
-Polynom.add(obj, obj)
+obj2 = Polynom()
+obj2.read_from_file('input02.txt')
+o = Polynom.add(obj, obj2)
+o.show()
