@@ -20,6 +20,9 @@ class QuadraticEquation(Equation):
         self._a = a
         super().__init__(b, c)
     #
+    def solve(self):
+        if self._a == 0:
+            return super().solve()
 
 
 if __name__ == "__main__":
