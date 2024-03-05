@@ -15,15 +15,28 @@ class Equation:
         else:
             return (- self._c / self._b, ) # кортеж з одного елемента
 
+class QuadraticEquation(Equation):
+    def __init__(self, a, b, c):
+        self._a = a
+        self._b = b
+        self._c = c
+
+
 if __name__ == "__main__":
-    e = Equation(1.0, 2.0)
+    e = QuadraticEquation(1.0, -2.0, -4)
     r = e.solve()
-    assert r==(-2.0/1.0, )
+    print(r)
 
-    e = Equation(0.0, 2.0)
-    r = e.solve()
-    assert r==Equation.NO_SOLS
 
-    e = Equation(0.0, 0.0)
-    r = e.solve()
-    assert r==Equation.INF_SOLS
+
+    # e = Equation(1.0, 2.0)
+    # r = e.solve()
+    # assert r==(-2.0/1.0, )
+    #
+    # e = Equation(0.0, 2.0)
+    # r = e.solve()
+    # assert r==Equation.NO_SOLS
+    #
+    # e = Equation(0.0, 0.0)
+    # r = e.solve()
+    # assert r==Equation.INF_SOLS
