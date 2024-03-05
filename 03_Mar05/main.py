@@ -18,8 +18,8 @@ class Equation:
 class QuadraticEquation(Equation):
     def __init__(self, a, b, c):
         self._a = a
-        self._b = b
-        self._c = c
+        super().__init__(b, c)
+    #
 
 
 if __name__ == "__main__":
