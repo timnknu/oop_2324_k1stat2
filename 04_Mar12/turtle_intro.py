@@ -2,14 +2,13 @@ import turtle
 
 turtle.pendown()
 
-turtle.setheading(0)
-turtle.forward(150)
+a = 0
+n = 10
+for i in range(n):
+    turtle.setheading(a)
+    turtle.forward(100)
+    a += 360/n
 
-turtle.setheading(120)
-turtle.forward(150)
-
-turtle.setheading(240)
-turtle.forward(150)
 
 #turtle.mainloop()
 turtle.exitonclick()
