@@ -15,10 +15,12 @@ class Figure:
         if not self._visible:
             turtle.color(self._color)
             turtle.circle(100) # тут треба малювати фігуру з допомогою turtle
+            self._visible = True
     def hide(self):
         if self._visible:
             turtle.color(turtle.bgcolor())
             turtle.circle(100) # тут треба ще раз малювати фігуру
+            self._visible = False
     def move(self, delta_x, delta_y):
         if self._visible:
             self.hide()
@@ -30,4 +32,5 @@ if __name__ == "__main__":
     obj = Figure()
     obj.set_color('blue')
     obj.show()
+    obj.hide()
     turtle.exitonclick()
