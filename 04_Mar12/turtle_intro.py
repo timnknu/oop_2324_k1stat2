@@ -4,20 +4,11 @@ turtle.speed("slowest")
 
 turtle.pendown()
 
-a = 0
-n = 10
+turtle.goto(200, 0)
 
-for i in range(n):
-    turtle.setheading(a)
-    turtle.forward(100)
-    a += 360/n
-
-turtle.color(turtle.bgcolor())
-
-for i in range(n):
-    turtle.setheading(a)
-    turtle.forward(100)
-    a += 360/n
+turtle.circle(150)
+turtle.circle(100)
+turtle.circle(200)
 
 turtle.penup()
 
