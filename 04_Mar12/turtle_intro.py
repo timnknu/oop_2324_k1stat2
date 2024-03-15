@@ -1,9 +1,12 @@
 import turtle
 
 turtle.pendown()
-turtle.goto(100, 180)
-turtle.goto(0, 180)
-turtle.goto(0, 0)
+turtle.forward(150)
+turtle.setheading(45)
+turtle.forward(150)
+
+turtle.setheading(90)
+turtle.forward(150)
 
 
 #turtle.mainloop()
