@@ -16,18 +16,17 @@ class Figure:
         return self._visible
     def set_color(self, c):
         self._color = c
+    def _draw(self):
+        raise Exception("Not implemented") # "майже абстрактний метод"
     def show(self):
         if not self._visible:
-            turtle.penup()
-            turtle.goto(self._x, self._y)
-            turtle.pendown()
             turtle.color(self._color)
-            turtle.circle(100) # тут треба малювати фігуру з допомогою turtle
+            self._draw() # /!\ намалювати не "коло", а просто "намалювати себе"
             self._visible = True
     def hide(self):
         if self._visible:
             turtle.color(turtle.bgcolor())
-            turtle.circle(100) # тут треба ще раз малювати фігуру
+            self._draw() # /!\ намалювати не "коло", а просто "намалювати себе"
             self._visible = False
     def move(self, delta_x, delta_y):
         if self._visible:
@@ -36,11 +35,33 @@ class Figure:
             self._y += delta_y
             self.show()
 
+class Circle(Figure):
+    def _draw(self):
+        turtle.penup()
+        turtle.goto(self._x, self._y)
+        turtle.pendown()
+        turtle.circle(100)
+
+class Triangle(Figure):
+    def _draw(self):
+        turtle.penup()
+        turtle.goto(self._x, self._y)
+        turtle.pendown()
+        turtle.setheading(0)
+        turtle.forward(100)
+        turtle.setheading(120)
+        turtle.forward(100)
+        turtle.setheading(240)
+        turtle.forward(100)
+
+
 if __name__ == "__main__":
     #turtle.speed("fastest")
-    obj = Figure()
+    obj = Circle()
+
     obj.set_position(50, 50)
     obj.set_color('blue')
     obj.show()
     obj.move(100, 0)
+
     turtle.exitonclick()
