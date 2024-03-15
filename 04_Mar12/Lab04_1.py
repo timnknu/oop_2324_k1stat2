@@ -56,12 +56,29 @@ class Triangle(Figure):
 
 
 if __name__ == "__main__":
-    #turtle.speed("fastest")
-    obj = Circle()
+    turtle.speed("fastest")
 
-    obj.set_position(50, 50)
-    obj.set_color('blue')
-    obj.show()
-    obj.move(100, 0)
+    figs = []
+
+    cr = Circle()
+    cr.set_position(-50, -100)
+    figs.append(cr)
+
+    cr2 = Circle()
+    cr2.set_position(-250, -100)
+    figs.append(cr2)
+
+    tr = Triangle()
+    tr.set_position(0, -150)
+    figs.append(tr)
+
+    print(figs)
+
+    for obj in figs:
+        obj.show()
+
+    for obj in figs:
+        obj.set_color('blue')
+        obj.move(100, 0)
 
     turtle.exitonclick()
