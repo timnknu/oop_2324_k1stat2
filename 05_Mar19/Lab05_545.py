@@ -31,8 +31,8 @@ class Vector:
                 res[i] += other
             return res
     def __radd__(self, other):
-        print('right addition')
-        return 'RES!'
+        return self.__add__(other)
+        #return self + other # також можна
 
 
 a = Vector(3)
