@@ -19,8 +19,15 @@ class Vector:
         s += ', '.join(map(str, self._data))
         return s
     def __add__(self, other):
-        print('other', other)
-        return 'HH'
+        res = Vector(self)
+        if isinstance(other, Vector):
+            # покомпонентна сума двох векторів
+            pass
+        else:
+            # додавання числа до всіх компонент
+            for i in range(len(res)):
+                res[i] += other
+            return res
 
 
 a = Vector(3)
