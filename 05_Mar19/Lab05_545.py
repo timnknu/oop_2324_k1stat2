@@ -37,8 +37,8 @@ class Vector:
         #return self + other # також можна
 
 
-a = Vector([3.0, 2.0, 1.0, -100.1])
-print(a[0])
-a = 1 + a
-print(a)
+a = Vector([3.0, 2.0, 1.0])
+b = Vector([5.0, 8.0, 2.0])
+c = a + b
+print(c)
 
