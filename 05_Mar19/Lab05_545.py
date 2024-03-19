@@ -10,8 +10,7 @@ class Vector:
     def __len__(self):
         return len(self._data)
     def __getitem__(self, j):
-        print('what is [',j,'] ?')
-        return -100
+        return self._data[j]
 
 a = Vector(3)
-print(a['H'])
+print(a[0])
