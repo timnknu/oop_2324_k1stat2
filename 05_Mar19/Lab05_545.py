@@ -13,6 +13,11 @@ class Vector:
         return self._data[j]
     def __setitem__(self, j, val):
         self._data[j] = val
+    def __str__(self):
+        s = 'Vec: '
+        for elem in self._data:
+            s += str(elem) + ', '
+        return s
 
 
 a = Vector(3)
