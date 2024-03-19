@@ -5,6 +5,8 @@ class Vector:
         if isinstance(n, Vector):
             # дані self <- дані з n
             self._data = copy.deepcopy(n._data)
+        elif isinstance(n, list):
+            self._data = copy.deepcopy(n)
         else:
             self._data = [0.0]*n
     def __len__(self):
@@ -35,9 +37,8 @@ class Vector:
         #return self + other # також можна
 
 
-a = Vector(3)
+a = Vector([3.0, 2.0, 1.0, -100.1])
 print(a[0])
-a[0] = 1.2
 a = 1 + a
 print(a)
 
