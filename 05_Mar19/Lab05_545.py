@@ -4,21 +4,13 @@ class Vector:
     def __init__(self, n):
         if isinstance(n, Vector):
             # дані self <- дані з n
-            #copy.deepcopy()
-            self._data = n._data
+            self._data = copy.deepcopy(n._data)
         else:
             self._data = [0.0]*n
+    def __len__(self):
+        print('len is asked')
+        return 100
 
-# a = Vector(3)
-# b = Vector(a)
+a = Vector(3)
 
-x = [1,2,3]
-y = x
-y[0] = -100
-print(x)
-
-
-x = [1,2,3]
-y = copy.deepcopy(x)
-y[0] = -100
-print(x)
+print(len(a))
