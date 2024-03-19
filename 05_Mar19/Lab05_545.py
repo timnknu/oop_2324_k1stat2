@@ -12,8 +12,10 @@ class Vector:
     def __getitem__(self, j):
         return self._data[j]
     def __setitem__(self, j, val):
-        print('SET:', j, val)
+        self._data[j] = val
+
 
 a = Vector(3)
 print(a[0])
-a['world'] = 'hello'
+a[0] = 1.2
+print(a)
