@@ -30,11 +30,14 @@ class Vector:
             for i in range(len(res)):
                 res[i] += other
             return res
+    def __radd__(self, other):
+        print('right addition')
+        return 'RES!'
 
 
 a = Vector(3)
 print(a[0])
 a[0] = 1.2
-a = a + a
+a = 1 + a
 print(a)
 
