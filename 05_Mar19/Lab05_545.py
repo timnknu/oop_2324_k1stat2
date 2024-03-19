@@ -15,15 +15,12 @@ class Vector:
         self._data[j] = val
     def __str__(self):
         s = 'Vec: '
-        #s += ','
-        for elem in self._data:
-            s += str(elem) + ', '
+        s += ', '.join(map(str, self._data))
         return s
 
 
-# a = Vector(3)
-# print(a[0])
-# a[0] = 1.2
-# print(a)
+a = Vector(3)
+print(a[0])
+a[0] = 1.2
+print(a)
 
-print('!?'.join(['yya', str(1), 'efg']))
