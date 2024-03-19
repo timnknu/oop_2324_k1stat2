@@ -19,14 +19,14 @@ class Vector:
         s += ', '.join(map(str, self._data))
         return s
     def __add__(self, other):
-        res = Vector(self)
+        res = Vector(len(self))
         if isinstance(other, Vector):
             # покомпонентна сума двох векторів
             pass
         else:
             # додавання числа до всіх компонент
             for i in range(len(res)):
-                res[i] += other
+                res[i] = self._data[i] + other
             return res
 
 
