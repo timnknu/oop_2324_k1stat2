@@ -8,9 +8,10 @@ class Vector:
         else:
             self._data = [0.0]*n
     def __len__(self):
-        print('len is asked')
-        return 100
+        return len(self._data)
+    def __getitem__(self, j):
+        print('what is [',j,'] ?')
+        return -100
 
 a = Vector(3)
-
-print(len(a))
+print(a['H'])
