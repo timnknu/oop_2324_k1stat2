@@ -16,8 +16,9 @@ class Vector:
         # тут можуть бути додаткові перевірки
         self._data[j] = val
     def __str__(self):
-        s = 'Vec: '
+        s = '['
         s += ', '.join(map(str, self._data))
+        s += ']'
         return s
     def __add__(self, other):
         res = Vector(self)
@@ -36,12 +37,18 @@ class Vector:
         #return self + other # також можна
 
 class Matrix(Vector):
-    pass
+    def __str__(self):
+        s = '{\n'
+        for i in range(len(self)):
+            s += str(self[i]) + '\n'
+        s += '}'
+        return s
 
 #v = Vector([1.0, 3.0, 2.0])
 #print(v)
 
 row1 = Vector([1, 2])
+print('row1', row1)
 row2 = Vector([-2, -1])
 
 components = [row1, row2 ]
@@ -49,5 +56,5 @@ a = Matrix( components )
 
 print(a)
 a = a + a
-print(a)
+#print(a)
 
