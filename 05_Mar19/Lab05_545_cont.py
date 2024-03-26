@@ -22,7 +22,7 @@ class Vector:
         return s
     def __add__(self, other):
         #res = Vector(self)
-        C = type(self)
+        C = self.__class__
         #print(C(5))
         #print("I will add:", C, type(other))
         #res = copy.deepcopy(self)
