@@ -22,7 +22,11 @@ class Vector:
         return s
     def __add__(self, other):
         #res = Vector(self)
-        res = copy.deepcopy(self)
+        C = type(self)
+        #print(C(5))
+        #print("I will add:", C, type(other))
+        #res = copy.deepcopy(self)
+        res = C(self)
         if isinstance(other, Vector):
             # покомпонентна сума двох векторів
             for i in range(len(res)):
@@ -55,22 +59,22 @@ class Matrix(Vector):
             super().__init__(n)
     #
 
-A = Matrix(5)
-print(A)
-#
-#
-# a = Matrix( [
-#     Vector([1, 2]),
-#     Vector([-2, -1])
-# ] )
-#
-# b = Matrix( [
-#     Vector([1, 0]),
-#     Vector([0, 1])
-# ] )
-#
-# print('a = ', a)
-# print('b = ', b)
-# c = a + b
-# print(c)
-#
+print(Matrix(5))
+
+a = Matrix( [
+    Vector([1, 2]),
+    Vector([-2, -1])
+] )
+
+b = Matrix( [
+    Vector([1, 0]),
+    Vector([0, 1])
+] )
+
+print(Vector)
+
+print('a = ', a)
+print('b = ', b)
+c = a + b
+print(c)
+
