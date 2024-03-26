@@ -35,6 +35,9 @@ class Vector:
         return self.__add__(other)
         #return self + other # також можна
 
+class Matrix(Vector):
+    pass
+
 #v = Vector([1.0, 3.0, 2.0])
 #print(v)
 
@@ -42,9 +45,9 @@ row1 = Vector([1, 2])
 row2 = Vector([-2, -1])
 
 components = [row1, row2 ]
-a = Vector( components )
+a = Matrix( components )
 
 print(a)
-a = a + 10
+a = a + a
 print(a)
 
