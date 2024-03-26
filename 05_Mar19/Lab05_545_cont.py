@@ -1,5 +1,4 @@
 import copy
-
 class Vector:
     def __init__(self, n):
         if isinstance(n, Vector):
@@ -36,13 +35,16 @@ class Vector:
         return self.__add__(other)
         #return self + other # також можна
 
+#v = Vector([1.0, 3.0, 2.0])
+#print(v)
 
-a = Vector( [
-    Vector([1, 2]),
-    Vector([-2, -1])
-    ]
-)
+row1 = Vector([1, 2])
+row2 = Vector([-2, -1])
 
+components = [row1, row2 ]
+a = Vector( components )
+
+print(a)
 a = a + 10
 print(a)
 
