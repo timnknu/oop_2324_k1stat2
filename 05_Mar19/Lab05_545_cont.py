@@ -47,12 +47,10 @@ class Matrix(Vector):
 #v = Vector([1.0, 3.0, 2.0])
 #print(v)
 
-row1 = Vector([1, 2])
-print('row1', row1)
-row2 = Vector([-2, -1])
-
-components = [row1, row2 ]
-a = Matrix( components )
+a = Matrix( [
+    Vector([1, 2]),
+    Vector([-2, -1])
+] )
 
 print(a)
 a = a + a
