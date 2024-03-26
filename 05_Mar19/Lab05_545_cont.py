@@ -21,7 +21,8 @@ class Vector:
         s += ']'
         return s
     def __add__(self, other):
-        res = Vector(self)
+        #res = Vector(self)
+        res = copy.deepcopy(self)
         if isinstance(other, Vector):
             # покомпонентна сума двох векторів
             for i in range(len(res)):
@@ -43,16 +44,33 @@ class Matrix(Vector):
             s += str(self[i]) + '\n'
         s += '}'
         return s
+    def __init__(self, n):
+        if type(n) is int:
+            rows = []
+            for i in range(n):
+                r = Vector(n)
+                rows.append(r)
+            super().__init__(rows)
+        else:
+            super().__init__(n)
+    #
 
-#v = Vector([1.0, 3.0, 2.0])
-#print(v)
-
-a = Matrix( [
-    Vector([1, 2]),
-    Vector([-2, -1])
-] )
-
-print(a)
-a = a + a
-#print(a)
-
+A = Matrix(5)
+print(A)
+#
+#
+# a = Matrix( [
+#     Vector([1, 2]),
+#     Vector([-2, -1])
+# ] )
+#
+# b = Matrix( [
+#     Vector([1, 0]),
+#     Vector([0, 1])
+# ] )
+#
+# print('a = ', a)
+# print('b = ', b)
+# c = a + b
+# print(c)
+#
