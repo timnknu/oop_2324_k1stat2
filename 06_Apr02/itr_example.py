@@ -1,13 +1,15 @@
-class MyClass:
+class SqNumCreator:
     def __init__(self):
         self._storage = ['a', 'y', 'b', -10]
         self._k = 0
-    def __iter__(self):
-        return self
     def __next__(self):
         elem = self._storage[self._k]
         self._k += 1
         return elem
+
+class MyClass:
+    def __iter__(self):
+        return SqNumCreator()
 
 if __name__ == "__main__":
     sq = MyClass()
@@ -21,6 +23,3 @@ if __name__ == "__main__":
 
 
 
-# class SqNumCreator:
-#     def __next__(self):
-#         return -10
