@@ -22,11 +22,7 @@ class Vector:
         return s
     def __add__(self, other):
         #res = Vector(self)
-        C = self.__class__
-        #print(C(5))
-        #print("I will add:", C, type(other))
-        #res = copy.deepcopy(self)
-        res = C(self)
+        res = copy.deepcopy(self)
         if isinstance(other, Vector):
             # покомпонентна сума двох векторів
             for i in range(len(res)):
