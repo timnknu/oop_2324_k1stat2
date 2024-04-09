@@ -1,7 +1,9 @@
 def f():
     #.....
-    return -15
+    yield -15
     #....
 
 v = f()
+for nm in dir(v):
+    print(nm)
 print(v)
