@@ -1,11 +1,10 @@
 def f():
     #.....
-    yield -15
-    yield -25
-    yield 100500
-
+    for j in range(10):
+        yield j**2
     #....
 
 v = f()
+print(v)
 for elem in v:
     print(elem)
