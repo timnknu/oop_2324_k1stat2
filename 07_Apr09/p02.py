@@ -1,7 +1,7 @@
-
 def seqgen(x):
     a = 1.
     n = 1
+    yield a
     while True:
         a = a * x / n
         n += 1
@@ -10,9 +10,7 @@ def seqgen(x):
 
 N = 11
 v = seqgen(0.12)
-k = 0
-for el in v:
-    k += 1
-    if k > N:
-        break
+b = iter(v)
+for k in range(N):
+    el = next(b)
     print(el)
