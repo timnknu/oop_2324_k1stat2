@@ -1,4 +1,3 @@
-N = 110
 
 def seqgen(x):
     a = 1.
@@ -7,7 +6,13 @@ def seqgen(x):
         a = a * x / n
         n += 1
         yield a
+#
 
+N = 11
 v = seqgen(0.12)
+k = 0
 for el in v:
+    k += 1
+    if k > N:
+        break
     print(el)
