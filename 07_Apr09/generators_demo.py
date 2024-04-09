@@ -5,6 +5,9 @@ def f():
     #....
 
 v = f()
-print(v)
-for elem in v:
-    print(elem)
+b = iter(v)
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))

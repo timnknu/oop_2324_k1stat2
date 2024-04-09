@@ -1,12 +1,13 @@
 N = 110
-x = 0.12
 
-def seqgen():
+def seqgen(x):
     a = 1.
-    for n in range(1, N+1):
+    n = 1
+    while True:
         a = a * x / n
+        n += 1
         yield a
 
-v = seqgen()
+v = seqgen(0.12)
 for el in v:
     print(el)
