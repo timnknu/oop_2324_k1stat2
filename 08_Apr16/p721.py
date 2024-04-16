@@ -1,3 +1,6 @@
+
+import traceback
+
 class ProtectedDictIntError(KeyError):
     def __init__(self, a):
         super().__init__()
@@ -29,7 +32,10 @@ if __name__ == "__main__":
         print(e)
         print(e._wrong_key)
         print('на рядку', e.__traceback__.tb_lineno)
-        pass
+        print('---')
+        s = traceback.format_exc()
+        print('а ось яким було б стандартне повідомлення', s)
+        print('---')
     except ZeroDivisionError:
         print('ділення на нуль')
     print('done')
