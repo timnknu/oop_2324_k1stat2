@@ -1,10 +1,15 @@
 class ProtectedDictInt:
     def __init__(self):
-        pass
+        self._data = {}
+    def __str__(self):
+        return str(self._data)
     def __getitem__(self, item):
         pass
     def __setitem__(self, key, value):
-        pass
+        if isinstance(key, int):
+            self._data[key] = value
+        else:
+            print('Error')
 
 d = ProtectedDictInt()
 d[1] = 2.0
