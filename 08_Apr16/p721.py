@@ -20,6 +20,16 @@ class ProtectedDictInt:
 #
 if __name__ == "__main__":
     d = ProtectedDictInt()
-    d[1] = 2.0
-    d[1.1] = 3.0
-    print(d)
+    try:
+        d[1] = 2.0
+        d[1.1] = 3.0
+        print(d)
+    except ProtectedDictIntError as e:
+        print('наше виключення')
+        print(e)
+        print(e._wrong_key)
+        print('на рядку', e.__traceback__.tb_lineno)
+        pass
+    except ZeroDivisionError:
+        print('ділення на нуль')
+    print('done')
