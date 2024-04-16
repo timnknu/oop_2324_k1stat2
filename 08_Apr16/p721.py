@@ -1,8 +1,9 @@
 class ProtectedDictIntError(KeyError):
     def __init__(self, a):
         super().__init__()
+        self._wrong_key = a
     def __str__(self):
-        return "помилка"
+        return f"помилка -- ключ {self._wrong_key} не є цілим числом"
 
 class ProtectedDictInt:
     def __init__(self):
