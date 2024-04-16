@@ -1,3 +1,7 @@
+class ProtectedDictIntError(KeyError):
+    def __init__(self):
+        super().__init__()
+
 class ProtectedDictInt:
     def __init__(self):
         self._data = {}
@@ -9,9 +13,10 @@ class ProtectedDictInt:
         if isinstance(key, int):
             self._data[key] = value
         else:
-            print('Error')
-
-d = ProtectedDictInt()
-d[1] = 2.0
-d[1.1] = 3.0
-print(d)
+            raise ProtectedDictIntError()
+#
+if __name__ == "__main__":
+    d = ProtectedDictInt()
+    d[1] = 2.0
+    d[1.1] = 3.0
+    print(d)
