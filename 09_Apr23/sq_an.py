@@ -25,8 +25,18 @@ class SinSeq(SequenceAnalyzer):
             n += 2
             yield (n, a)
 
+class CosSeq(SequenceAnalyzer):
+    def terms_gen(self):
+        a = 1
+        n = 0
+        yield (n, a)
+        while True:
+            a = -a / (n + 1) / (n + 2)
+            n += 2
+            yield (n, a)
+
 if __name__ == "__main__":
-    #s = SequenceAnalyzer() # не працює
-    s = SinSeq() # працює!
+    #s = SinSeq()
+    s = CosSeq()
     print(s)
 
