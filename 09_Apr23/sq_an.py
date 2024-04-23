@@ -13,12 +13,15 @@ class SequenceAnalyzer: #(metaclass=abc.ABCMeta):
             n += 2
             yield (n, a)
 
-    # def __str__(self):
-    #     n = 10
-    #     s = "string representation"
-    #     return s
+    def __str__(self):
+        N = 10
+        s = "elements:\n"
+        for k, ak in self.terms_gen():
+            s += f"a_({k}) = {ak}\n"
+            if k > N:
+                break
+        return s
 
 s = SequenceAnalyzer()
-for k, ak in s.terms_gen():
-    print(k, ak)
+print(s)
 
