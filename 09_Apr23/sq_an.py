@@ -25,8 +25,12 @@ class SequenceAnalyzer(metaclass=abc.ABCMeta):
             sm += term
         return sm
 
+class Evaluatable(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def eval(self, x):
+        pass
 
-class SinSeq(SequenceAnalyzer):
+class SinSeq(SequenceAnalyzer, Evaluatable):
     def terms_gen(self):
         a = 1
         n = 1
@@ -37,7 +41,7 @@ class SinSeq(SequenceAnalyzer):
             n += 2
             yield (n, a)
 
-class CosSeq(SequenceAnalyzer):
+class CosSeq(SequenceAnalyzer, Evaluatable):
     def terms_gen(self):
         a = 1
         n = 0
@@ -46,6 +50,7 @@ class CosSeq(SequenceAnalyzer):
             a = -a / (n + 1) / (n + 2)
             n += 2
             yield (n, a)
+
 
 
 def print_table(objs, a=0, b=1, npoints=10):
@@ -65,13 +70,20 @@ def print_table(objs, a=0, b=1, npoints=10):
 #
 
 
+
+class ExactSin(Evaluatable):
+    def eval(self, x):
+        return math.sin(x)
+
+class ExactCos(Evaluatable):
+    def eval(self, x):
+        return math.cos(x)
+
 if __name__ == "__main__":
     s = SinSeq()
     c = CosSeq()
 
-    print_table([c, s], a=-1, b=1)
+    print_table([c, ExactCos()], a=-1, b=1)
     print('----')
 
-    #print(s.eval(2.0))
-    #print(math.cos(2.0))
 
