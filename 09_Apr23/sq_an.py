@@ -19,7 +19,6 @@ class SequenceAnalyzer: #(metaclass=abc.ABCMeta):
     #     return s
 
 s = SequenceAnalyzer()
-v = s.terms_gen()
-for el in v:
-    print(el)
+for k, ak in s.terms_gen():
+    print(k, ak)
 
