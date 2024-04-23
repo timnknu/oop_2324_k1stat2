@@ -58,16 +58,20 @@ def print_table(objs, a=0, b=1, npoints=10):
     # x[i] == a + s*(i-1)
     for i in range(1, npoints+1):
         x = a + s*(i-1)
-        print(f"x_{i} = {x}: (f1, f2, ...)")
+        print(f"x_{i} = {x} : ", end='')
+        for f in objs:
+            print(f.eval(x), end=' ; ')
+        print()
 #
 
 
-print_table([], a=-1, b=1)
-print('----')
-
 if __name__ == "__main__":
-    #s = SinSeq()
-    s = CosSeq()
-    print(s.eval(2.0))
-    print(math.cos(2.0))
+    s = SinSeq()
+    c = CosSeq()
+
+    print_table([c, s], a=-1, b=1)
+    print('----')
+
+    #print(s.eval(2.0))
+    #print(math.cos(2.0))
 
