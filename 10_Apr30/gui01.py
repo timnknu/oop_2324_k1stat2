@@ -14,29 +14,25 @@ class App:
         root.geometry(alignstr)
         #root.resizable(width=False, height=False)
 
-        GLineEdit_379=tk.Entry(root)
-        GLineEdit_379["text"] = "0"
-        GLineEdit_379.place(x=70,y=40,width=186,height=37)
+        time_entry = tk.Entry(root, text = "0")
+        time_entry.place(x=70,y=40,width=186)
 
-        GLabel_966=tk.Label(root)
-        GLabel_966["text"] = "Кількість секунд"
-        GLabel_966.place(x=20,y=20,width=70,height=25)
+        lbl1 = tk.Label(root, text = "Кількість секунд")
+        lbl1.place(x=20,y=20)
 
-        GButton_939=tk.Button(root)
-        GButton_939["text"] = "Пуск"
-        GButton_939.place(x=30,y=110,width=70,height=25)
-        GButton_939["command"] = self.start_bnt_onclick
+        start_btn = tk.Button(root, text = "Пуск",
+                              command = self.start_bnt_onclick)
+        start_btn.place(x=30,y=110,width=70,height=25)
 
-        GButton_533=tk.Button(root)
-        GButton_533["text"] = "Стоп"
-        GButton_533.place(x=220,y=110,width=70,height=25)
-        GButton_533["command"] = self.GButton_533_command
+        stop_btn = tk.Button(root, text = "Стоп",
+                             command = self.stop_btn_onclick)
+        stop_btn.place(x=220,y=110,width=70,height=25)
 
     def start_bnt_onclick(self):
         print("command 123")
 
 
-    def GButton_533_command(self):
+    def stop_btn_onclick(self):
         print("command 345")
 
 if __name__ == "__main__":
