@@ -31,7 +31,15 @@ class App:
                              command = self.stop_btn_onclick)
         stop_btn.place(x=220,y=110,width=70,height=25)
 
+        self.is_active = False
+
     def update_time(self):
+        if not self.is_active:
+            tk.messagebox.showwarning(title="відповідь",
+                                      message="відлік часу зупинений")
+            return
+        #
+
         old_text = self.s.get()
         old_val = int(old_text)
         if old_val == 0:
@@ -49,12 +57,12 @@ class App:
     #
 
     def start_bnt_onclick(self):
+        self.is_active = True
         root.after(500, self.update_time)
 
 
     def stop_btn_onclick(self):
-        tk.messagebox.askyesno(title="питання",
-                               message="текст:" + self.s.get())
+        self.is_active = False
 
 
 
