@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.messagebox
 import tkinter.font as tkFont
 
 class App:
@@ -14,10 +15,10 @@ class App:
         root.geometry(alignstr)
         #root.resizable(width=False, height=False)
 
-        s = tk.StringVar()
-        time_entry = tk.Entry(root, textvariable=s)
+        self.s = tk.StringVar()
+        time_entry = tk.Entry(root, textvariable=self.s)
         time_entry.place(x=70,y=40,width=186)
-        s.set("Hello, world")
+        self.s.set("10")
 
         lbl1 = tk.Label(root, text = "Кількість секунд")
         lbl1.place(x=0,y=0)
@@ -30,12 +31,32 @@ class App:
                              command = self.stop_btn_onclick)
         stop_btn.place(x=220,y=110,width=70,height=25)
 
+    def update_time(self):
+        old_text = self.s.get()
+        old_val = int(old_text)
+        if old_val == 0:
+            #tk.messagebox.askyesno(title="питання",
+            #                       message="Час вийшов. Запустити знову?")
+            ans = tk.messagebox.askquestion(title="питання",
+                                            message="Час вийшов. Запустити знову?",
+                                            type=tk.messagebox.YESNO)
+            tk.messagebox.showwarning(title="відповідь",
+                                      message=ans)
+
+        else:
+            self.s.set( str(old_val - 1) )
+            root.after(500, self.update_time) # запланувати повторний виклик
+    #
+
     def start_bnt_onclick(self):
-        print("command 123")
+        root.after(500, self.update_time)
 
 
     def stop_btn_onclick(self):
-        print("command 345")
+        tk.messagebox.askyesno(title="питання",
+                               message="текст:" + self.s.get())
+
+
 
 if __name__ == "__main__":
     root = tk.Tk()
