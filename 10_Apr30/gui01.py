@@ -14,11 +14,13 @@ class App:
         root.geometry(alignstr)
         #root.resizable(width=False, height=False)
 
-        time_entry = tk.Entry(root, text = "0")
+        s = tk.StringVar()
+        time_entry = tk.Entry(root, textvariable=s)
         time_entry.place(x=70,y=40,width=186)
+        s.set("Hello, world")
 
         lbl1 = tk.Label(root, text = "Кількість секунд")
-        lbl1.place(x=20,y=20)
+        lbl1.place(x=0,y=0)
 
         start_btn = tk.Button(root, text = "Пуск",
                               command = self.start_bnt_onclick)
